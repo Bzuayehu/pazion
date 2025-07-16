@@ -1,9 +1,9 @@
 // SCRIPT FOR TYPED TEXT ANIMATION
 const typed = new Typed('.multiple-text', {
-    strings: ['Problem Identification & Solution Provider Company'],
+    strings: ['Problem Identification', 'Solution Provider Company'],
     typeSpeed: 70,
-    backSpeed: 40,
-    backDelay: 1200,
+    backSpeed: 70,
+    backDelay: 1000,
     loop: true
 });
 
@@ -30,20 +30,17 @@ window.onscroll = () => {
 // SCRIPT FOR MODAL
 const modal = document.getElementById("about-modal");
 const btn = document.getElementById("more-about-btn");
-const closeBtn = document.getElementsByClassName("close-btn")[0];
+const span = document.getElementsByClassName("close-btn")[0];
 
-// Open the modal when the button is clicked
 btn.onclick = function(event) {
-  event.preventDefault(); // Prevents the link from scrolling
+  event.preventDefault(); 
   modal.style.display = "block";
 }
 
-// Close the modal when the 'x' is clicked
-closeBtn.onclick = function() {
+span.onclick = function() {
   modal.style.display = "none";
 }
 
-// Close the modal when clicking outside of it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
