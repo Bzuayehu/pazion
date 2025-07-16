@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
     margin: 0;
@@ -15,9 +15,8 @@
     --bg-color: #081b29;
     --second-bg-color: #112e42;
     --text-color: #ededed;
-    --main-color: #00abf0;
-    --glow-start-color: #8a2be2; /* Purple */
-    --glow-end-color: #00e5ff;   /* Cyan */
+    --main-color: #00e1ff;
+    --purple-color: #c800ff;
 }
 
 html {
@@ -36,8 +35,8 @@ body {
     left: 0;
     width: 100%;
     padding: 2rem 9%;
-    background: rgba(8, 27, 41, 0.8);
-    backdrop-filter: blur(10px);
+    background: #081b29c9;
+    backdrop-filter: blur(5px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,7 +54,7 @@ body {
     color: var(--text-color);
     font-weight: 500;
     margin-left: 3.5rem;
-    transition: color 0.3s;
+    transition: .3s;
 }
 
 .navbar a:hover,
@@ -72,8 +71,6 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 2rem;
 }
 
 .home-content {
@@ -107,12 +104,12 @@ section {
     width: 4rem;
     height: 4rem;
     background: transparent;
-    border: 0.2rem solid var(--main-color);
+    border: .2rem solid var(--main-color);
     border-radius: 50%;
     font-size: 2rem;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
-    transition: 0.5s ease;
+    transition: .5s ease;
 }
 
 .social-media a:hover {
@@ -123,48 +120,40 @@ section {
 
 .btn {
     display: inline-block;
-    padding: 1.2rem 2.8rem;
+    padding: 1rem 2.8rem;
     background: var(--main-color);
     border-radius: 4rem;
     box-shadow: 0 0 1rem var(--main-color);
     font-size: 1.6rem;
-    color: var(--bg-color);
-    letter-spacing: 0.1rem;
+    color: #333;
+    letter-spacing: .1rem;
     font-weight: 600;
-    transition: 0.5s ease;
+    transition: .5s ease;
+    cursor: pointer;
 }
 
 .btn:hover {
     box-shadow: none;
 }
 
-/* --- Glowing Circle Styles --- */
-.home-img-container {
+.home-img {
     position: relative;
-    width: 40rem;
-    height: 40rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.glowing-circle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
+    width: 45rem;
+    height: 45rem;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.glowing-circle span {
+.home-img::before {
+    content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    background: conic-gradient(from 180deg, var(--glow-start-color), var(--glow-end-color), var(--glow-start-color));
+    background: conic-gradient(from 90deg, var(--purple-color), var(--main-color), var(--purple-color));
     border-radius: 50%;
     animation: rotate 4s linear infinite;
-    filter: blur(15px);
+    filter: blur(20px);
 }
 
 @keyframes rotate {
@@ -188,8 +177,6 @@ section {
     font-weight: 700;
     color: var(--text-color);
 }
-/* --- End Glowing Circle Styles --- */
-
 
 .heading {
     text-align: center;
@@ -205,7 +192,7 @@ section {
     background: var(--second-bg-color);
 }
 
-.about-content {
+.about-content, .contact-content {
     text-align: center;
     font-size: 1.8rem;
 }
@@ -213,8 +200,7 @@ section {
 .about-content .founders {
     margin-top: 2rem;
     font-size: 1.6rem;
-    line-height: 2;
-    color: var(--text-color);
+    line-height: 1.8;
 }
 
 .services-container {
@@ -226,13 +212,13 @@ section {
 }
 
 .service-box {
-    flex: 1 1 30rem;
+    flex: 1 1 25rem;
     background: var(--bg-color);
     padding: 3rem 2rem 4rem;
     border-radius: 2rem;
     text-align: center;
-    border: 0.2rem solid transparent;
-    transition: 0.5s ease;
+    border: .2rem solid var(--bg-color);
+    transition: .5s ease;
 }
 
 .service-box:hover {
@@ -247,7 +233,7 @@ section {
 
 .service-box h3 {
     font-size: 2.2rem;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .project-content {
@@ -256,6 +242,7 @@ section {
 
 .project-content h3 {
     font-size: 2.4rem;
+    margin-bottom: 2rem;
 }
 
 .project-images {
@@ -268,7 +255,7 @@ section {
 }
 
 .efoyta-logo {
-    width: clamp(200px, 30vw, 280px);
+    width: 250px;
     height: auto;
 }
 
@@ -280,16 +267,12 @@ section {
     border-radius: 0.5rem;
 }
 
-.contact-content {
-    text-align: center;
-}
-
 .contact-content p {
     font-size: 2.2rem;
     font-weight: 500;
 }
 
-/* --- Modal Styles --- */
+/* Modal Styling */
 .modal {
     display: none;
     position: fixed;
@@ -298,36 +281,36 @@ section {
     top: 0;
     width: 100%;
     height: 100%;
+    overflow: auto;
     background-color: rgba(0,0,0,0.7);
-    backdrop-filter: blur(5px);
 }
 
 .modal-content {
     background-color: var(--second-bg-color);
     margin: 15% auto;
-    padding: 2.5rem;
-    border: 0.1rem solid var(--main-color);
-    width: 90%;
+    padding: 20px;
+    border: 1px solid var(--main-color);
+    width: 80%;
     max-width: 500px;
     border-radius: 1rem;
     text-align: center;
     position: relative;
-    box-shadow: 0 0 2rem rgba(0, 171, 240, 0.4);
+    box-shadow: 0 0 2rem rgba(0, 225, 255, 0.5);
 }
 
 .close-btn {
     color: #aaa;
     position: absolute;
-    top: 1rem;
-    right: 2.5rem;
+    top: 10px;
+    right: 25px;
     font-size: 3.5rem;
     font-weight: bold;
-    transition: color 0.3s;
 }
 
 .close-btn:hover,
 .close-btn:focus {
     color: white;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -339,12 +322,12 @@ section {
 
 .modal-content p {
     font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .founders-list {
     list-style-type: none;
     padding: 0;
     font-size: 1.6rem;
-    line-height: 2.2;
+    line-height: 2;
 }
