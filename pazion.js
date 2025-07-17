@@ -46,3 +46,24 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+// HAMBURGER NAVBAR
+const hamburger = document.getElementById('hamburger-menu');
+const navbar = document.querySelector('.navbar');
+
+hamburger.onclick = function() {
+    hamburger.classList.toggle('active');
+    navbar.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+};
+
+// Close menu on nav link click (mobile)
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            hamburger.classList.remove('active');
+            navbar.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+});
